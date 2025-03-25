@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "hi" > "/roort/test.txt"
+echo "hi" > "/root/test.txt"
