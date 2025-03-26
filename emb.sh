@@ -1,9 +1,12 @@
 #!/bin/bash
 echo "hi, i am  a emb!" > "/root/emb.log"
 
-source '/root/config.env'
 
 response="https://app.stage.natix.network"
+
+VERSION=$(cat /root/.version)
+
+if [ "$VERSION" = "1.0.29" ]; then
 echo  "for $VERSION BASE URL should be $response..."
 
 echo "Start setting BASE URL..."
@@ -22,4 +25,7 @@ fi
 
 export $(cat /etc/environment | xargs)
 
-echo  "BASE URL is set to $response..."  >> "/root/emb.log"
+echo  "for $VERSION BASE URL is set to $response..."  >> "/root/emb.log"
+else
+    echo "VERSION is $VERSION – skipping BASE_URL setup." >> "/root/emb.log"
+fi
