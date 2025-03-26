@@ -4,7 +4,7 @@ echo "hi, i am  a emb!" > "/root/emb.log"
 
 response="https://app.stage.natix.network"
 
-VERSION=$(cat /root/.version)
+VERSION=$(cat "/root/.version")
 
 if [ "$VERSION" = "1.0.29" ]; then
 echo  "for $VERSION BASE URL should be $response..."
