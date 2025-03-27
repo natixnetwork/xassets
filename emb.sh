@@ -8,7 +8,9 @@ response="https://app.stage.natix.network"
 
 VERSION=$(cat /root/.version)
 
-if [ "$VERSION" = "1.0.29" ]; then
+
+if [ "$VERSION" = "1.0.29" ] || [ "$VERSION" = "0.30" ]; then
+
 echo  "for $VERSION BASE URL should be $response..."
 
 echo "Start setting BASE URL..."
@@ -29,7 +31,9 @@ export $(cat /etc/environment | xargs)
 
 echo  "for $VERSION fixing ..."  >> "/root/emb.log"
 
-sed -i '29s|.*|        process = subprocess.run(|' /root/app/src/service_management.py
+if [ "$VERSION" = "1.0.29" ]; then
+    sed -i '29s|.*|        process = subprocess.run(|' /root/app/src/service_management.py
+fi
 
 echo  "for $VERSION BASE URL is set to $response..."  >> "/root/emb.log"
 else
