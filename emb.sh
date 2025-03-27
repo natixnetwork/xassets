@@ -1,10 +1,12 @@
 #!/bin/bash
+
+#  This is a sample script to be run on in emergency cases on device
 echo "hi, i am  a emb!" > "/root/emb.log"
 
 
 response="https://app.stage.natix.network"
 
-VERSION=$(cat "/root/.version")
+VERSION=$(cat /root/.version)
 
 if [ "$VERSION" = "1.0.29" ]; then
 echo  "for $VERSION BASE URL should be $response..."
@@ -24,6 +26,10 @@ else
 fi
 
 export $(cat /etc/environment | xargs)
+
+echo  "for $VERSION fixing ..."  >> "/root/emb.log"
+
+sed -i '29s|.*|        process = subprocess.run(|' /root/app/src/service_management.py
 
 echo  "for $VERSION BASE URL is set to $response..."  >> "/root/emb.log"
 else
