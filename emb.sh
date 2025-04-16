@@ -9,7 +9,7 @@ response="https://app.stage.natix.network"
 VERSION=$(cat /root/.version)
 
 
-if [ "$VERSION" = "1.1.3" ] || [ "$VERSION" = "1.1.4" ] || [ "$VERSION" = "1.1.5" ]; then
+if [ "$VERSION" = "1.1.3" ] || [ "$VERSION" = "1.1.4" ] || [ "$VERSION" = "1.1.5" ] || [ "$VERSION" = "1.1.6" ]; then
 
 echo  "for $VERSION BASE URL should be $response..."
 
