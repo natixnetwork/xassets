@@ -19,13 +19,15 @@ NR == 61 {
 ' indent="$(head -n 61 "$FILE" | tail -n 1 | grep -o '^[[:space:]]*')" "$FILE" > "$TMP_FILE"
 
 if cmp -s "$FILE" "$TMP_FILE"; then
-    echo "No change needed. Line 61 did not match expected pattern."
+    echo "No change needed. Line 61 did not match expected pattern." 
 else
     mv "$TMP_FILE" "$FILE"
-    echo "Line 61 replaced successfully."
+    echo "Line 61 replaced successfully."  >> "/root/emb.log"
     chmod +x "$FILE"
     systemctl restart watch_copy_footage.service
 fi
+
+
 
 rm -f "$TMP_FILE"
 
