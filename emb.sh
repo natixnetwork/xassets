@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #  This is a sample script to be run on in emergency cases on device
-echo "hi, i am  a emb! 1.1.11 fix" > "/root/emb.log"
+echo "hi, i am  a emb!" > "/root/emb.log"
 
 
 
