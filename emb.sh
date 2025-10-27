@@ -6,7 +6,7 @@ echo "hi, i am  a emb" > "/root/emb.log"
 MAC_ADDRESS=$(cat /sys/class/net/wlan0/address)
 THING_NAME=$(echo "tesla-device-$MAC_ADDRESS" | sed 's/[^a-zA-Z0-9-]//g')
 
-
+source '/root/config.env'
 # Delete all contents of /mnt/footage if THING_NAME matches target
 if [ "$THING_NAME" = "tesla-device-ac6aa336bf03" ]; then
     VERSION=$(cat /root/.version)
